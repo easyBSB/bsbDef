@@ -1,0 +1,21 @@
+{
+  "name": "@easybsb/bsbdef",
+  "version": "0.0.1",
+  "description": "This package contains all definitions of command to communicate with bsb devices",
+  "main": "index.json",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/easyBSB/bsbDef.git"
+  },
+  "keywords": [
+    "bsb"
+  ],
+  "author": "Konrad Mattheis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/easyBSB/bsbDef/issues"
+  },
+  "homepage": "https://github.com/easyBSB/bsbDef#readme"
+}
