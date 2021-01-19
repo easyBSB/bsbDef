@@ -1,0 +1,43 @@
+name: compile
+
+on:
+  push:
+    branches: [ main, development ]
+    paths:
+      - '*.json'
+      - '.github/workflows/publish.yml'
+
+  pull_request:
+    branches: [ main, development ]
+    paths:
+      - '*.json'
+      - '.github/workflows/publish.yml'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 15.x
+
+    - name: get version
+      id: version
+      uses: notiz-dev/github-action-json-property@release
+      with: 
+          path: 'index.json'
+          prop_path: 'version'
+    - run: echo ${{steps.version.outputs.prop}} 
+
+    - name: npm set Version
+      run: |
+        npm config set git-tag-version false
+        npm version ${{ steps.version.outputs.prop }}
+
+    - uses: JS-DevTools/npm-publish@v1
+      with:
+          token: ${{ secrets.NPM_TOKEN }}
