@@ -71,6 +71,7 @@ If a key for the requested language doesn't exists take first EN and than DE as 
       }
      ]
     }
+   ]
   }
 }
 ```
